@@ -64,12 +64,34 @@ aetec-site/
 
 ## 🎯 Seções da Landing Page
 
-1. **Header** - Logo, navegação e botão WhatsApp
+1. **Header** - Logo, navegação com dropdown de serviços e botão WhatsApp fixo
 2. **Hero** - Apresentação principal com CTA
 3. **Quem Somos** - Sobre a empresa e estatísticas
-4. **Serviços** - Grid de serviços oferecidos
-5. **Contato** - Formulário e informações de contato
-6. **Footer** - Informações finais
+4. **Serviços Overview** - Menu visual dos serviços principais
+5. **Seções Individuais de Serviços** - Cada serviço com foto e detalhes:
+   - Controle de Acesso
+   - Energia Solar Fotovoltaica
+   - CFTV (Monitoramento)
+   - Elétrica Residencial/Predial
+   - Automação Residencial
+6. **Contato** - Formulário e informações de contato
+7. **Footer** - Informações finais
+
+## 🎨 Seções de Serviços Detalhadas
+
+Cada serviço possui sua própria seção com:
+- **Foto de alta qualidade** do Unsplash relacionada ao serviço
+- **Descrição detalhada** do que é oferecido
+- **Características principais** em destaque
+- **Botão de CTA** direcionando para contato
+- **Layout alternado** (imagem à esquerda/direita) para melhor visual
+
+### Imagens dos Serviços:
+- **Controle de Acesso:** Sistema de fechadura digital
+- **Energia Solar:** Painéis solares em telhado
+- **CFTV:** Câmeras de segurança profissionais
+- **Elétrica:** Instalação elétrica técnica
+- **Automação:** Casa inteligente com controle por app
 
 ## 📞 Contato
 

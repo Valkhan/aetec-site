@@ -41,6 +41,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="image-optimization.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -111,7 +112,16 @@
                 <ul class="nav-menu">
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#quem-somos">Quem Somos</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#servicos">Serviços <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#controle-acesso">Controle de Acesso</a></li>
+                            <li><a href="#energia-solar">Energia Solar</a></li>
+                            <li><a href="#cftv">CFTV</a></li>
+                            <li><a href="#eletrica">Elétrica</a></li>
+                            <li><a href="#automacao">Automação</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
                 <div class="hamburger">
@@ -167,48 +177,209 @@
         </div>
     </section>
 
-    <!-- Serviços Section -->
-    <section id="servicos" class="services">
+    <!-- Serviços Overview Section -->
+    <section id="servicos" class="services-overview">
         <div class="container">
             <div class="section-header">
                 <h2>Nossos Serviços</h2>
                 <div class="section-line"></div>
+                <p class="section-description">Soluções completas em tecnologia e infraestrutura para sua segurança, economia e conforto</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card featured">
-                    <div class="service-icon">
-                        <i class="fas fa-key"></i>
+            <div class="services-menu">
+                <a href="#controle-acesso" class="service-menu-item">
+                    <i class="fas fa-key"></i>
+                    <span>Controle de Acesso</span>
+                </a>
+                <a href="#energia-solar" class="service-menu-item">
+                    <i class="fas fa-solar-panel"></i>
+                    <span>Energia Solar</span>
+                </a>
+                <a href="#cftv" class="service-menu-item">
+                    <i class="fas fa-video"></i>
+                    <span>CFTV</span>
+                </a>
+                <a href="#eletrica" class="service-menu-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Elétrica</span>
+                </a>
+                <a href="#automacao" class="service-menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>Automação</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controle de Acesso Section -->
+    <section id="controle-acesso" class="service-section">
+        <div class="service-hero">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Sistema de Controle de Acesso" loading="lazy">
+            </div>
+            <div class="service-content">
+                <div class="container">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h2>Controle de Acesso</h2>
+                        <p class="service-description">Portões, fechaduras e sistemas eletrônicos com alta segurança e controle remoto. Tecnologia de ponta para proteger o que é mais importante para você.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Segurança Avançada</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Controle Remoto</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Acesso 24/7</span>
+                            </div>
+                        </div>
+                        <a href="#contato" class="service-cta">Solicitar Orçamento</a>
                     </div>
-                    <h3>Controle de Acesso</h3>
-                    <p>Portões, fechaduras e sistemas eletrônicos com alta segurança e controle remoto.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-solar-panel"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energia Solar Section -->
+    <section id="energia-solar" class="service-section reverse">
+        <div class="service-hero">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Painéis Solares Fotovoltaicos" loading="lazy">
+            </div>
+            <div class="service-content">
+                <div class="container">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h2>Energia Fotovoltaica</h2>
+                        <p class="service-description">Projetos e instalação de sistemas solares para economia e sustentabilidade. Reduza sua conta de energia e contribua para um futuro mais limpo.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Sustentável</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Economia Garantida</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-sun"></i>
+                                <span>Energia Limpa</span>
+                            </div>
+                        </div>
+                        <a href="#contato" class="service-cta">Solicitar Orçamento</a>
                     </div>
-                    <h3>Energia Fotovoltaica</h3>
-                    <p>Projetos e instalação de sistemas solares para economia e sustentabilidade.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-video"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- CFTV Section -->
+    <section id="cftv" class="service-section">
+        <div class="service-hero">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Sistema de Câmeras de Segurança CFTV" loading="lazy">
+            </div>
+            <div class="service-content">
+                <div class="container">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h2>CFTV (Monitoramento)</h2>
+                        <p class="service-description">Instalação de câmeras e sistemas de vigilância de alta definição. Monitoramento 24 horas para sua tranquilidade total.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-eye"></i>
+                                <span>Monitoramento 24h</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-hd-video"></i>
+                                <span>Alta Definição</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-cloud"></i>
+                                <span>Acesso Remoto</span>
+                            </div>
+                        </div>
+                        <a href="#contato" class="service-cta">Solicitar Orçamento</a>
                     </div>
-                    <h3>CFTV (Monitoramento)</h3>
-                    <p>Instalação de câmeras e sistemas de vigilância de alta definição.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elétrica Section -->
+    <section id="eletrica" class="service-section reverse">
+        <div class="service-hero">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Instalação Elétrica Profissional" loading="lazy">
+            </div>
+            <div class="service-content">
+                <div class="container">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h2>Elétrica Residencial/Predial</h2>
+                        <p class="service-description">Instalação e manutenção elétrica com segurança e padrão técnico. Serviços elétricos completos com qualidade e confiabilidade.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-hard-hat"></i>
+                                <span>Segurança Total</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Padrão Técnico</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tools"></i>
+                                <span>Manutenção</span>
+                            </div>
+                        </div>
+                        <a href="#contato" class="service-cta">Solicitar Orçamento</a>
                     </div>
-                    <h3>Elétrica Residencial/Predial</h3>
-                    <p>Instalação e manutenção elétrica com segurança e padrão técnico.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automação Section -->
+    <section id="automacao" class="service-section">
+        <div class="service-hero">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Casa Inteligente com Automação Residencial" loading="lazy">
+            </div>
+            <div class="service-content">
+                <div class="container">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h2>Automação Residencial</h2>
+                        <p class="service-description">Casas inteligentes com controle de luz, som, cortinas e muito mais pelo celular. Transforme sua casa em um ambiente inteligente e confortável.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Iluminação Inteligente</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-volume-up"></i>
+                                <span>Áudio Multiroom</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-smartphone"></i>
+                                <span>Controle por App</span>
+                            </div>
+                        </div>
+                        <a href="#contato" class="service-cta">Solicitar Orçamento</a>
                     </div>
-                    <h3>Automação Residencial</h3>
-                    <p>Casas inteligentes com controle de luz, som, cortinas e muito mais pelo celular.</p>
                 </div>
             </div>
         </div>

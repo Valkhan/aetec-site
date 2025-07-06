@@ -77,6 +77,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    position: relative;
 }
 
 .nav-menu a {
@@ -85,6 +86,9 @@ body {
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-menu a:hover {
@@ -104,6 +108,65 @@ body {
 
 .nav-menu a:hover::after {
     width: 100%;
+}
+
+/* Dropdown Menu */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown .fa-chevron-down {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    border-radius: 10px;
+    padding: 1rem 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.dropdown-menu a:hover {
+    background: var(--light-gray);
+    color: var(--secondary-blue);
+    padding-left: 2rem;
+}
+
+.dropdown-menu a::after {
+    display: none;
 }
 
 .whatsapp-btn {
@@ -284,7 +347,201 @@ body {
     font-weight: 500;
 }
 
-/* Services Section */
+/* Services Overview Section */
+.services-overview {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    max-width: 600px;
+    margin: 1rem auto 3rem;
+    text-align: center;
+}
+
+.services-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.service-menu-item:hover,
+.service-menu-item.active {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary-blue);
+    background: var(--secondary-blue);
+    color: var(--white);
+}
+
+.service-menu-item:hover i,
+.service-menu-item.active i {
+    color: var(--white);
+}
+
+.service-menu-item i {
+    font-size: 2.5rem;
+    color: var(--secondary-blue);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.service-menu-item span {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Individual Service Sections */
+.service-section {
+    padding: 0;
+    margin: 0;
+}
+
+.service-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.service-section.reverse .service-hero {
+    grid-template-columns: 1fr 1fr;
+}
+
+.service-section.reverse .service-image {
+    order: 2;
+}
+
+.service-section.reverse .service-content {
+    order: 1;
+}
+
+.service-image {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.service-image:hover img {
+    transform: scale(1.05);
+}
+
+.service-content {
+    padding: 4rem 0;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.service-section.reverse .service-content {
+    background: var(--white);
+}
+
+.service-info {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.service-section .service-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--secondary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.service-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.service-description {
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.service-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.feature-item i {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.service-cta {
+    display: inline-block;
+    background: var(--secondary-blue);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.service-cta:hover {
+    background: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Services Section (Legacy - keeping for backward compatibility) */
 .services {
     padding: 6rem 0;
     background: var(--white);
@@ -318,7 +575,7 @@ body {
     color: var(--white);
 }
 
-.service-icon {
+.service-card .service-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 1.5rem;
@@ -560,10 +817,45 @@ body {
         box-shadow: var(--shadow);
         transform: translateX(100%);
         transition: transform 0.3s ease;
+        z-index: 1002;
     }
 
     .nav-menu.active {
         transform: translateX(0);
+    }
+
+    /* Mobile Dropdown */
+    .nav-dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: var(--light-gray);
+        border-radius: 5px;
+        margin-top: 0.5rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown.active .dropdown-menu {
+        max-height: 300px;
+    }
+
+    .dropdown-menu a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .dropdown-menu a:hover {
+        background: var(--white);
+        padding-left: 1.5rem;
     }
 
     .whatsapp-btn {
@@ -584,6 +876,69 @@ body {
 
     .services-grid {
         grid-template-columns: 1fr;
+    }
+
+    .services-menu {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .service-menu-item {
+        padding: 1.5rem;
+    }
+
+    .service-menu-item i {
+        font-size: 2rem;
+    }
+
+    /* Service Sections Mobile */
+    .service-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .service-section.reverse .service-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .service-section.reverse .service-image {
+        order: 1;
+    }
+
+    .service-section.reverse .service-content {
+        order: 2;
+    }
+
+    .service-image {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .service-content {
+        padding: 3rem 0;
+        min-height: auto;
+    }
+
+    .service-section h2 {
+        font-size: 2rem;
+    }
+
+    .service-description {
+        font-size: 1.1rem;
+    }
+
+    .service-features {
+        gap: 0.75rem;
+    }
+
+    .feature-item {
+        font-size: 0.9rem;
+    }
+
+    .feature-item i {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
     }
 
     .contact-content {
@@ -609,12 +964,32 @@ body {
         font-size: 1rem;
     }
 
+    .services-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .service-menu-item {
+        padding: 1rem;
+    }
+
     .service-card {
         padding: 1.5rem;
     }
 
     .contact-form {
         padding: 1.5rem;
+    }
+
+    .service-info {
+        padding: 0 1rem;
+    }
+
+    .service-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-description {
+        font-size: 1rem;
     }
 }
 
@@ -633,4 +1008,90 @@ html {
 .loading.loaded {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Service Image Animation */
+.service-image.loading {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.service-section.reverse .service-image.loading {
+    transform: translateX(50px);
+}
+
+.service-image.loaded {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Service Info Animation */
+.service-info.loading {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.service-section.reverse .service-info.loading {
+    transform: translateX(-50px);
+}
+
+.service-info.loaded {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Service Menu Item Animation */
+.service-menu-item.loading {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+}
+
+.service-menu-item.loaded {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Staggered Animation for Menu Items */
+.service-menu-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.service-menu-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.service-menu-item:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.service-menu-item:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.service-menu-item:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+/* Feature Items Animation */
+.feature-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.service-info.loaded .feature-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.service-info.loaded .feature-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.service-info.loaded .feature-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.service-info.loaded .feature-item:nth-child(3) {
+    transition-delay: 0.3s;
 }

@@ -10,9 +10,24 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 });
 
+// Mobile dropdown toggle
+document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            const dropdown = this.parentElement;
+            dropdown.classList.toggle('active');
+        }
+    });
+});
+
 // Close mobile menu when clicking on a link
 navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+        // Don't close menu if it's the main services link on mobile
+        if (link.closest('.nav-dropdown') && link.parentElement.querySelector('.dropdown-menu') && window.innerWidth <= 768) {
+            return;
+        }
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
     });
@@ -138,10 +153,79 @@ const observer = new IntersectionObserver((entries) => {
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     // Add loading class to elements
-    const animatedElements = document.querySelectorAll('.service-card, .stat-item, .contact-item, .about-content p');
+    const animatedElements = document.querySelectorAll('.service-card, .stat-item, .contact-item, .about-content p, .service-menu-item, .service-info, .service-image');
     animatedElements.forEach(el => {
         el.classList.add('loading');
         observer.observe(el);
+    });
+    
+    // Service menu smooth scroll
+    const serviceMenuItems = document.querySelectorAll('.service-menu-item');
+    serviceMenuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Parallax effect for service images
+    const serviceImages = document.querySelectorAll('.service-image img');
+    
+    const handleParallax = () => {
+        serviceImages.forEach(img => {
+            const rect = img.getBoundingClientRect();
+            const speed = 0.5;
+            const yPos = -(rect.top * speed);
+            img.style.transform = `translateY(${yPos}px)`;
+        });
+    };
+    
+    // Throttle scroll event for performance
+    let ticking = false;
+    const handleScroll = () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                handleParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Service section intersection observer for navigation highlighting
+    const serviceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Remove active class from all menu items
+                document.querySelectorAll('.service-menu-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to corresponding menu item
+                const id = entry.target.getAttribute('id');
+                const menuItem = document.querySelector(`a[href="#${id}"]`);
+                if (menuItem) {
+                    menuItem.classList.add('active');
+                }
+            }
+        });
+    }, {
+        threshold: 0.6,
+        rootMargin: '-20% 0px -20% 0px'
+    });
+    
+    // Observe service sections
+    document.querySelectorAll('.service-section').forEach(section => {
+        serviceObserver.observe(section);
     });
     
     // Counter animation for stats
@@ -180,6 +264,29 @@ document.addEventListener('DOMContentLoaded', () => {
         
         statsObserver.observe(statsSection);
     }
+    
+    // Image lazy loading optimization
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                }
+                img.classList.add('loaded');
+                imageObserver.unobserve(img);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+    
+    // Observe all images
+    document.querySelectorAll('img').forEach(img => {
+        imageObserver.observe(img);
+    });
 });
 
 // Phone number formatting
