@@ -1,0 +1,32 @@
+{
+    "name": "AETEC - Soluções Inteligentes",
+    "short_name": "AETEC",
+    "description": "Controle de acesso, energia solar, CFTV, automação residencial e elétrica predial",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1e3a8a",
+    "theme_color": "#1e3a8a",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["business", "utilities"],
+    "lang": "pt-BR",
+    "scope": "/",
+    "screenshots": [
+        {
+            "src": "/screenshot1.png",
+            "sizes": "1280x720",
+            "type": "image/png"
+        }
+    ]
+}
